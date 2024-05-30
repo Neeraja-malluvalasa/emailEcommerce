@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping
-@CrossOrigin(value = "http://localhost:3000")
+@CrossOrigin(value = "http://172.172.194.196:3000")
 public class RegistrationController {
 
     @Autowired
