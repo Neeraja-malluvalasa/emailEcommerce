@@ -27,6 +27,7 @@ public class RegistrationController {
 
 
     @PostMapping("/addCustomer")
+    @CrossOrigin(value = "http://172.172.194.196:3000")
     public Registration postDetails(@RequestBody Registration registration)
     {
         mailService.sendMail(registration.getEmail(),registration);
@@ -42,6 +43,7 @@ public class RegistrationController {
 
 
     @GetMapping("/getAll")
+    @CrossOrigin(value = "http://172.172.194.196:3000")
     public List<Registration> getAllRegistration(){
         return serviceRepo.getAllRegistration();
     }
@@ -49,6 +51,7 @@ public class RegistrationController {
 
     //@CrossOrigin(value = "http://172.172.194.196:3000")
     @PostMapping("/login")
+    @CrossOrigin(value = "http://172.172.194.196:3000")
     public String requestLogin(@RequestBody Registration registration){
         try {
             Registration savedCus = serviceRepo.checkCredentials(registration);

@@ -37,6 +37,7 @@ public class MailController {
 
     //@CrossOrigin(value = "http://localhost:3000")
     @PostMapping("/mail")
+    @CrossOrigin(value = "http://172.172.194.196:3000")
     public String sendOrderMail(@RequestBody MailStructure mailStructure){
         System.out.println(mailStructure.getEmail());
         orderMailService.sendOrderMail(mailStructure);
