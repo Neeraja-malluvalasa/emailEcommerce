@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping
+@CrossOrigin(value = "http://localhost:3000")
 public class MailController {
 
-   // @Autowired
-    //private MailService mailService;
+    @Autowired
+    private MailService mailService;
 
     @Autowired
     private OrderMailService orderMailService;
@@ -36,9 +36,9 @@ public class MailController {
 
 
     //@CrossOrigin(value = "http://localhost:3000")
-    @PostMapping("/orderMail")
-    public String sendOrderMail(MailStructure mailStructure){
-
+    @PostMapping("/mail")
+    public String sendOrderMail(@RequestBody MailStructure mailStructure){
+        System.out.println(mailStructure.getEmail());
         orderMailService.sendOrderMail(mailStructure);
 
         return "successfully sent the mail.....";

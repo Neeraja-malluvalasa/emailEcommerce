@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping
-@CrossOrigin(value = "http://172.172.194.196:3000")
+@CrossOrigin(value = "http://localhost:3000")
 public class RegistrationController {
 
     @Autowired
@@ -52,7 +52,7 @@ public class RegistrationController {
     public String requestLogin(@RequestBody Registration registration){
         try {
             Registration savedCus = serviceRepo.checkCredentials(registration);
-            if(savedCus.getPassword().equals(registration.getPassword()))  return "{\"status\":\"200\"}";
+            if(savedCus.getPassword().equals(registration.getPassword()))  return "{\"email\":\""+savedCus.getEmail()+"\"}";
             else return "{\"message\":\"Invalid Password\"}";
         } catch (NullPointerException e) {
             return "{\"message\":\"User doesn't exist\"}";
