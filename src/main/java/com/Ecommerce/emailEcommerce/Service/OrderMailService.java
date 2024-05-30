@@ -1,5 +1,6 @@
 package com.Ecommerce.emailEcommerce.Service;
 
+import com.Ecommerce.emailEcommerce.Model.MailStructure;
 import com.Ecommerce.emailEcommerce.Model.Registration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,7 +18,7 @@ public class OrderMailService {
     @Value("${spring.mail.username}")
     private String fromMail;
 
-    public void sendOrderMail(String mail, Registration registration){
+    public void sendOrderMail(MailStructure mailStructure){
 
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
         simpleMailMessage.setFrom(fromMail);
@@ -33,7 +34,7 @@ public class OrderMailService {
         simpleMailMessage.setText(OrderText);
         //simpleMailMessage.setText("your  are welcome to my family");
 
-        simpleMailMessage.setTo(mail);
+        simpleMailMessage.setTo(mailStructure.getEmail());
 
 
         mailSender.send(simpleMailMessage);

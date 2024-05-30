@@ -47,7 +47,7 @@ public class RegistrationController {
     }
 
 
-    @CrossOrigin(value = "http://localhost:3000")
+    @CrossOrigin(value = "http://172.172.194.196:3000")
     @PostMapping("/login")
     public String requestLogin(@RequestBody Registration registration){
         try {

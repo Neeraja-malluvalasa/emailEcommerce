@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("/mail")
+@RequestMapping
 public class MailController {
 
    // @Autowired
@@ -21,28 +21,30 @@ public class MailController {
     @Autowired
     private OrderMailService orderMailService;
 
-    /*@PostMapping("/send/{mail}")
-    public String sendMail(@PathVariable String mail, @RequestBody Registration registration){
+//    @PostMapping("/send/{mail}")
+//    public String sendMail(@PathVariable String mail, @RequestBody Registration registration){
+//
+//        mailService.sendMail(mail,registration);
+//
+//        return "successfully sent the mail.....";
+//
+//    }
 
-        mailService.sendMail(mail,registration);
+
+
+
+
+
+    //@CrossOrigin(value = "http://localhost:3000")
+    @PostMapping("/orderMail")
+    public String sendOrderMail(MailStructure mailStructure){
+
+        orderMailService.sendOrderMail(mailStructure);
 
         return "successfully sent the mail.....";
 
     }
 
 
-
-
-
-    @PostMapping("/{mail}")
-    public String sendOrderMail(@PathVariable String mail, @RequestBody Registration registration){
-
-        orderMailService.sendOrderMail(mail,registration);
-
-        return "successfully sent the mail.....";
-
-    }
-
-     */
 
 }
